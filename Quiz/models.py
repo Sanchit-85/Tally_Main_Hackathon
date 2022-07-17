@@ -18,6 +18,5 @@ class ScoreModel(models.Model):
     user = models.CharField(max_length=200, null=True)
     score = models.IntegerField(null=True)
 
-
     def __str__(self):
         return self.user

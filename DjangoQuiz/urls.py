@@ -27,6 +27,7 @@ urlpatterns = [
     path('login/', loginPage,name='login'),
     path('logout/', logoutPage,name='logout'),
     path('register/', registerPage,name='register'),
+    path('admin/', adminPanel , name='admin')
 
 
 ]

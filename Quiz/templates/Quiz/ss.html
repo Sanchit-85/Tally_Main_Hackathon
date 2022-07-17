@@ -2,6 +2,16 @@
 
 {% block content %}
 {% load static %}
-
- <p>Click on start button to start the quiz<a href="{% url 'home' %}"> Start</a></p>
+ <h1>Welcome To Quizziz</h1>
+ <img src="https://thumbs.dreamstime.com/b/quiz-word-red-d-letters-to-illustrate-exam-evaluation-assessment-to-measure-your-knowledge-expertise-44060147.jpg"  alt="Quizziz" height="400" , width="700">
+    <p>
+     {% if not user.is_authenticated %}
+        <h2> You are Not logged in Please Login To start quiz</h2>
+        <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+     {% else %}
+        <h2>You are logged in {{user.username}}</h2>
+        <h3> Click on Button to start the quiz</h3>
+        <a href="{% url 'home' %}" class="btn btn-success" >Start Quiz</a>
+     {% endif %}
 {% endblock %}

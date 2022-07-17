@@ -6,6 +6,7 @@ from .Serializers import scoreSerializer
 from django.http import HttpResponse
 import datetime
 
+
 # Create your views here.
 def ss(request):
     if request.method == 'POST':
@@ -13,6 +14,12 @@ def ss(request):
         return redirect('home')
     else:
         return render(request, 'Quiz/ss.html')
+
+def adminPanel(request):
+    if request.user.is_staff:
+        return render(request, 'Quiz/adminPanel.html')
+    else:
+        return redirect('home')
 
 
 def home(request):
@@ -66,8 +73,6 @@ def home(request):
             'questions': questions
         }
         return render(request, 'Quiz/home.html', context)
-
-
 
 
 def addQuestion(request):
