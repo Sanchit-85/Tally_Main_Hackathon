@@ -1,8 +1,17 @@
 {% extends 'Quiz/dependencies.html' %}
 {% load static%}
 {% block content %}
-<div class="container jumbotron">
-    <form method="POST" action="" >
+<style>
+    #former{
+        color: black;
+    }
+    #h{
+        align-content: center;
+    }
+</style>
+<h1 id = "h">Registration Page</h1>
+<div class="container jumbotron" id = "former">
+    <form method="POST" action="">
         {% csrf_token %}
         {{form.as_p}}
        
