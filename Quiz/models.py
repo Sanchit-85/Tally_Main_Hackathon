@@ -17,6 +17,7 @@ class QuesModel(models.Model):
 class ScoreModel(models.Model):
     user = models.CharField(max_length=200, null=True)
     score = models.IntegerField(null=True)
+    isTestGiven = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user

@@ -4,7 +4,7 @@
 {% block content %}
 {% load static %}
 <div class="container ">
-<h1>Welcome to DataFlair Quiz</h1>
+<h1>Welcome to Quizzi</h1>
 
 <div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div>
 
@@ -44,23 +44,25 @@
     {% endfor %}
     <input id='timer' type='hidden' name="timer" value="">
     <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" id = "submissionOver">Submit</button>
   </form>
     {% block script %}
         <script>
 
-            console.log('hello world')
             const timer=document.getElementById('displaytimer')
+            const submitter = document.getElementById('submissionOver')
             console.log(timer.textContent)
             const inputtag = document.getElementById('timer')
 
-            t=5
+            t=10
             setInterval(()=>{
                 t-=1
                 timer.innerHTML ="<b>Timer: " +t+" seconds</b>"
                 inputtag.value = t
                 if (t==-1){
-                    alert('time up')
+                    alert("Time up! This will autosubmit")
+                    submitter.click()
+
                 }
             },1000)
         </script>

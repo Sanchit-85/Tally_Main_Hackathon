@@ -57,7 +57,8 @@ def home(request):
 
         Data = {
             'user': request.user.username,
-            'score': scores
+            'score': scores,
+            'isTestGiven': True,
         }
         Serializer = scoreSerializer(data=Data)
         if Serializer.is_valid():
